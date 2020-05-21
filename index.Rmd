@@ -3,6 +3,7 @@ title: "School Shootings Report"
 author: "Alex Lam"
 date: "5/19/2020"
 output: html_document
+keep_md: true
 ---
 
 ```{r setup, include=FALSE}
@@ -60,4 +61,4 @@ As seen in the chart:
 
 * *California* has over ***double the number*** of individuals who were killed and injured compared to Texas, with Florida being nearly double as well.
 
-A question I posed to myself was *"Was there any rhyme or reason to all of this? Was there a pattern that can be formed to help prevent these shootings from killing and injuring loved ones?* I decided to create this chart to try and make sense of it all, and I was able to find my answer: There isn't a pattern. As stated before, I talked about how looking at the table above really puts into perspective that there these horrible acts of violence can truly happen anywhere. The top 5 states have nothing to do with each other and are fairly spread out across the United States, and as such, there is nothing about the location that can really connect with each other. They are just horrendous acts of violence that we can only hope to prevent from harming our loved ones further. 
+A question I posed to myself was *"Was there any rhyme or reason to all of this? Was there a pattern that can be formed to help prevent these shootings from killing and injuring loved ones?* I decided to create this chart to try and make sense of it all, and I was able to find my answer: There isn't a pattern. As stated before, I talked about how looking at the table above really puts into perspective that there these horrible acts of violence can truly happen anywhere. The top 5 states have nothing to do with each other and are fairly spread out across the United States, and as such, there is nothing about the location that can really connect with each other. They are just horrendous acts of violence that we can only hope to prevent from harming our loved ones further.
