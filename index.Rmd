@@ -11,13 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 source("analysis.R")
 ```
 
-## School Shootings in 2018
-### Summary:
+# School Shootings in 2018
+## Summary:
 > This report talks about the United States of America's school shootings that occurred during the year 2018. There were a total of **`r number_shootings`** school shootings that had unfortunately taken place that year. There were a total of **`r lives_lost`** lives lost, with *`r name_most_impacted`* city having the most casualities and *`r name_most_injured`* city having the most injured. The state that had the most lives lost in 2018 was *`r name_max_death`* state with **`r max_death$sum_death`** deaths. The table below outlines a summarized version of the tallied totals by death, injuries, and total impacted by state:
 
 ***
 
-### Total Death and Injuries by State
+## Total Death and Injuries by State
 ```{r grp_summary, echo = FALSE}
 library(knitr)
 kable(grp_summary)
@@ -31,14 +31,14 @@ A Look at the table:
 
 ***
 
-### Tragedy in Thousand Oaks, California.
+## Tragedy in Thousand Oaks, California.
 > On *`r cali_case$date`* the city of *`r cali_case$city`* would experience a tragedy among their youth. The incident happened at the *Borderline Bar and Grill*, a place for college students to enjoy their evenings, spend time with friends, and celebrate special occasions. The perpetrator, Ian D. Long, was a 28 year old who served in Afghanistan as a  Marine Corp Veteran. That night, **`r cali_case$num_killed`** people were killed, with **`r cali_case$num_injured`** injured by Mr. Long's actions. The devasting shooting totaled in _**`r cali_case$total_impacted`**_ individuals who were impacted that night, with *`r cali_case$num_killed`* of them losing their lives in a horrible incident.
 
 *For more information on the California case, you can click [this site here](https://www.nytimes.com/2018/11/08/us/shooting-california-thousand-oaks.html).*
 
 ***
 
-### Map of All Shootings During 2018
+## Map of All Shootings During 2018
 `r interactive_map`
 
 The **size** of the circle markers on the map indicate the total impact; the number of people killed and injured.
@@ -47,7 +47,7 @@ The **size** of the circle markers on the map indicate the total impact; the num
 
 * *`r most_impacted$city`, `r most_impacted$state`* had the highest number of fatalities and injuries, with **`r most_impacted$num_killed` killed and `r most_impacted$num_injured` injured**.
 
-### A Closer, Tragic Look
+## A Closer, Tragic Look
 
 Below is a bar chart containing the data of the top 5 states that had the most impacted individuals:
 
