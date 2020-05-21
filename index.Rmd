@@ -11,21 +11,53 @@ source("analysis.R")
 ```
 
 ## School Shootings in 2018
+### Summary:
+> This report talks about the United States of America's school shootings that occurred during the year 2018. There were a total of **`r number_shootings`** school shootings that had unfortunately taken place that year. There were a total of **`r lives_lost`** lives lost, with *`r name_most_impacted`* city having the most casualities and *`r name_most_injured`* city having the most injured. The state that had the most lives lost in 2018 was *`r name_max_death`* state with **`r max_death$sum_death`** deaths. The table below outlines a summarized version of the tallied totals by death, injuries, and total impacted by state:
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+***
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+### Total Death and Injuries by State
+```{r grp_summary, echo = FALSE}
+library(knitr)
+kable(grp_summary)
 ```
 
-## Including Plots
+A Look at the table:
 
-You can also embed plots, for example:
+* Although the numbers differ, there isn't a coherent pattern to these incidents. This tragedy and loss of human life can happen *anywhere*, and that's the sad truth. The total number of people that died were **`r sum(grp_summary$total_deaths)`**.
+  
+* The number of individuals impacted total up to be **`r total_impacted_sum`** individuals. However, those numbers are only to those killed or injured, and don't take account for their friends and family who lost someone.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+***
+
+### Tragedy in Thousand Oaks, California.
+> On *`r cali_case$date`* the city of *`r cali_case$city`* would experience a tragedy among their youth. The incident happened at the *Borderline Bar and Grill*, a place for college students to enjoy their evenings, spend time with friends, and celebrate special occasions. The perpetrator, Ian D. Long, was a 28 year old who served in Afghanistan as a  Marine Corp Veteran. That night, **`r cali_case$num_killed`** people were killed, with **`r cali_case$num_injured`** injured by Mr. Long's actions. The devasting shooting totaled in _**`r cali_case$total_impacted`**_ individuals who were impacted that night, with *`r cali_case$num_killed`* of them losing their lives in a horrible incident.
+
+*For more information on the California case, you can click [this site here](https://www.nytimes.com/2018/11/08/us/shooting-california-thousand-oaks.html).*
+
+***
+
+### Map of All Shootings During 2018
+`r interactive_map`
+
+The **size** of the circle markers on the map indicate the total impact; the number of people killed and injured.
+
+* Eastern United States have unfortunately had many more shooting incidents happen than the Western United States **combined**.
+
+* *`r most_impacted$city`, `r most_impacted$state`* had the highest number of fatalities and injuries, with **`r most_impacted$num_killed` killed and `r most_impacted$num_injured` injured**.
+
+### A Closer, Tragic Look
+
+Below is a bar chart containing the data of the top 5 states that had the most impacted individuals:
+
+```{r bar_chart, echo=FALSE}
+plot(bar_chart)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+As seen in the chart:
+
+* *California* and *Florida* have the **highest number total casualities and injured**, with both states being completely opposite of each other
+
+* *California* has over ***double the number*** of individuals who were killed and injured compared to Texas, with Florida being nearly double as well.
+
+A question I posed to myself was *"Was there any rhyme or reason to all of this? Was there a pattern that can be formed to help prevent these shootings from killing and injuring loved ones?* I decided to create this chart to try and make sense of it all, and I was able to find my answer: There isn't a pattern. As stated before, I talked about how looking at the table above really puts into perspective that there these horrible acts of violence can truly happen anywhere. The top 5 states have nothing to do with each other and are fairly spread out across the United States, and as such, there is nothing about the location that can really connect with each other. They are just horrendous acts of violence that we can only hope to prevent from harming our loved ones further. 

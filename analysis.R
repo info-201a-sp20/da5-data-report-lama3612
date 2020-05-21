@@ -2,9 +2,10 @@ library("dplyr")
 library("ggplot2")
 library("plotly")
 library("leaflet")
+library("httr")
 
 ####### Summary information
-shootings <- read.csv("shootings-2018.csv", stringsAsFactors = FALSE)
+shootings <- read.csv("C:/Users/Alex/Desktop/Info 201/da5-data-report-lama3612/data/shootings-2018.csv",header = TRUE, stringsAsFactors = FALSE)
 column_names <- colnames(shootings)
 number_col <- ncol(shootings)
 
@@ -23,13 +24,14 @@ name_most_injured <- select(most_injured, "city")
 ## state with most fatalities on average
 grp <- group_by(shootings, state)
 summary_state_deaths <- summarize(grp, sum_death = sum(num_killed), sum_inj = sum(num_injured), total_impacted = sum_death + sum_inj)
-max_death <- filter(summary_state_deaths, sum_death == max(summary_state$sum_death))
+max_death <- filter(summary_state_deaths, sum_death == max(summary_state_deaths$sum_death))
 name_max_death <- select(max_death, "state")
 
 ####### Summary Table
 grp_summary <- grp %>%
   mutate(avg_killed = mean(num_killed), avg_injured = mean(num_injured)) %>%
   summarize(total_deaths = sum(num_killed), total_injuries = sum(num_injured), total_impacted = total_deaths + total_injuries)
+total_impacted_sum <- sum(grp_summary$total_impacted)
 
 ####### Description of a particular incident
 cali_case <- grp %>%
